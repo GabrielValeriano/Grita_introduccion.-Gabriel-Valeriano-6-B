@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
-
+import { Pressable, Text } from "react-native";
+import { estilosLista } from "../componentes/estilosListaDeCompras";
 export type Item = {
 id: string;
 name: string;
@@ -30,12 +31,28 @@ export function useListaDeCompras() {
         setItems((prev) => prev.filter((it) => it.id !== id));
     }, []);
 
+    const TarjetaParaItemDeCompra = ({ item }: { item: Item }) => (
+        <Pressable
+            onPress={() => cambiarElEstadoDeCompra(item.id)}
+            onLongPress={() => borrarItem(item.id)}
+            style={estilosLista.row}
+            >
+            <Text style={[estilosLista.rowText, item.done && estilosLista.done]}>
+                {item.name}
+            </Text>
+            <Text style={[estilosLista.pill, item.done ? estilosLista.pillDone : estilosLista.pillTodo]}>
+                {item.done ? '✔' : '•'}
+            </Text>
+        </Pressable>
+    );
+
     return {
         items,
         text,
         setText,
         agregarItem,
         cambiarElEstadoDeCompra,
-        borrarItem
+        borrarItem,
+        TarjetaParaItemDeCompra,
     }
 }

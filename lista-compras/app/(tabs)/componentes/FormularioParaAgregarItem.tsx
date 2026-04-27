@@ -1,7 +1,12 @@
 import { View,TextInput,Pressable,Text } from 'react-native';
-import { estilosLista } from '../estilos/estilosListaDeCompras';
+import { estilosLista } from './estilosListaDeCompras';
 
-type Props = {texto : string; AlIntroducirUnTexto : (nuevoTexto : string) => void; AlAgregarUnItem : () => void;};
+type Props = {
+  texto : string; 
+  AlIntroducirUnTexto : (nuevoTexto : string) => void;
+  AlAgregarUnItem : () => void;
+};
+
 export function FormularioParaAgregarUnNuevoItem({texto, AlIntroducirUnTexto, AlAgregarUnItem} : Props){
   return ( 
      <View style={estilosLista.inputRow}>

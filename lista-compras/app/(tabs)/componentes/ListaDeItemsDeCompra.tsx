@@ -1,6 +1,6 @@
 import { FlatList, ListRenderItem, Text, View } from "react-native";
-import { Item } from "../../../hooks/use-lista-compras";
-import { estilosLista } from "../estilos/estilosListaDeCompras";
+import { Item } from "../hooks/use-lista-compras";
+import { estilosLista } from "./estilosListaDeCompras";
 
 type Props = {
   Items: Item[];

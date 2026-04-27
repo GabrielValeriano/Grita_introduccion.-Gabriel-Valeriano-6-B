@@ -1,5 +1,5 @@
 import { Text } from 'react-native';
-import { estilosLista } from '../estilos/estilosListaDeCompras';
+import { estilosLista } from './estilosListaDeCompras';
 
 
 export function TituloDeLaPagina(){
